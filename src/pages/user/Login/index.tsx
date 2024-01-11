@@ -1,17 +1,12 @@
 import Footer from '@/components/Footer';
 import { login } from '@/services/ant-design-pro/api';
-import { getFakeCaptcha } from '@/services/ant-design-pro/login';
 import {
-  AlipayCircleOutlined,
   LockOutlined,
-  MobileOutlined,
-  TaobaoCircleOutlined,
   UserOutlined,
-  WeiboCircleOutlined,
+
 } from '@ant-design/icons';
 import {
   LoginForm,
-  ProFormCaptcha,
   ProFormCheckbox,
   ProFormText,
 } from '@ant-design/pro-components';
@@ -19,7 +14,7 @@ import { Alert, message, Tabs } from 'antd';
 import React, { useState } from 'react';
 import { FormattedMessage, history, SelectLang, useIntl, useModel } from 'umi';
 import styles from './index.less';
-import {SYSTEM_LOGO} from "@/constants";
+import {PLANET_LINK} from "@/constants";
 
 const LoginMessage: React.FC<{
   content: string;
@@ -91,7 +86,7 @@ const Login: React.FC = () => {
         <LoginForm
           logo={<img alt="logo" src="/chenchuicon.png" />}
           title="陈楚用户中心"
-          subTitle={intl.formatMessage({ id: '详细代码，请前往Github查看' })}
+          subTitle={<a href={PLANET_LINK} target="_blank" rel="noreferrer">详细代码，请前往Github查看</a>}
           initialValues={{
             autoLogin: true,
           }}
