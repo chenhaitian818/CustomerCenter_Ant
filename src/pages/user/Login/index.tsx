@@ -146,7 +146,7 @@ const Login: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                忘记密码
+                忘记密码找陈楚
               </a>
             </Space>
           </div>

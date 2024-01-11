@@ -53,7 +53,11 @@ declare namespace API {
     message: string,
     description: string,
   }
-
+  // ts查找静态资源
+  declare module '*.png' {
+    const value: any;
+    export = value;
+  }
   type RuleList = {
     data?: RuleListItem[];
     /** 列表的内容总数 */
