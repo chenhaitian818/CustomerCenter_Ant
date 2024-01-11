@@ -4,21 +4,15 @@
     layout: false,
     routes: [
       {
-        name: 'login',
-        path: '/user/login',
-        component: './user/Login',
+        path: '/user', routes: [
+          {name: '登录', path: '/user/login', component: './user/Login'},
+          {name: '注册', path: '/user/register', component: './user/Register'}
+        ]
       },
-      {
-        component: './404',
-      },
+      {component: './404'},
     ],
   },
-  {
-    path: '/welcome',
-    name: 'welcome',
-    icon: 'smile',
-    component: './Welcome',
-  },
+  {path: '/welcome', name: '欢迎', icon: 'smile', component: './Welcome'},
   {
     path: '/admin',
     name: 'admin',

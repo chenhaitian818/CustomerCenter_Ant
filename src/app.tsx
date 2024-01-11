@@ -12,6 +12,11 @@ import {RequestConfig} from "@@/plugin-request/request";
 const isDev = process.env.NODE_ENV === 'development';
 const loginPath = '/user/login';
 
+/**
+ * 无需用户登录态的页面
+ */
+const NO_NEED_LOGIN_WHITE_LIST = ['/user/register', loginPath];
+
 /** 获取用户信息比较慢的时候会展示一个 loading */
 export const initialStateConfig = {
   loading: <PageLoading />,
@@ -35,7 +40,7 @@ export async function getInitialState(): Promise<{
       const msg = await queryCurrentUser();
       return msg.data;
     } catch (error) {
-      history.push(loginPath);
+      // history.push(loginPath);
     }
     return undefined;
   };
@@ -65,8 +70,11 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
     footerRender: () => <Footer />,
     onPageChange: () => {
       const { location } = history;
+      if (NO_NEED_LOGIN_WHITE_LIST.includes(location.pathname)) {
+        return;
+      }
       // 如果没有登录，重定向到 login
-      if (!initialState?.currentUser && location.pathname !== loginPath) {
+      if (!initialState?.currentUser) {
         history.push(loginPath);
       }
     },
