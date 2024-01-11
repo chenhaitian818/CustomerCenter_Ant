@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   const intl = useIntl();
   const defaultMessage = intl.formatMessage({
     id: 'app.copyright.produced',
-    defaultMessage: '蚂蚁集团体验技术部出品',
+    defaultMessage: '陈楚出品',
   });
 
   const currentYear = new Date().getFullYear();
@@ -16,21 +16,21 @@ const Footer: React.FC = () => {
       copyright={`${currentYear} ${defaultMessage}`}
       links={[
         {
-          key: 'Ant Design Pro',
-          title: 'Ant Design Pro',
+          key: '陈楚用户中心',
+          title: '用户中心项目',
           href: 'https://pro.ant.design',
           blankTarget: true,
         },
         {
           key: 'github',
-          title: <GithubOutlined />,
-          href: 'https://github.com/ant-design/ant-design-pro',
+          title: <><GithubOutlined /> 陈楚 GitHub前端</>,
+          href: 'https://github.com/chenhaitian818/CustomerCenter_Ant.git',
           blankTarget: true,
         },
         {
-          key: 'Ant Design',
-          title: 'Ant Design',
-          href: 'https://ant.design',
+          key: 'github2',
+          title: <><GithubOutlined /> 陈楚 GitHub后端</>,
+          href: 'https://github.com/chenhaitian818/CustomerCenter_Backend.git',
           blankTarget: true,
         },
       ]}
